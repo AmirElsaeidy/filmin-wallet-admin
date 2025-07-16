@@ -11,8 +11,7 @@ st.title("🎬 FILMIN Wallet - Admin Panel")
 st.info("عرض أحدث التحويلات المالية - للاستخدام الإداري فقط.")
 
 # Load service account info
-with open("filmin-wallet-921300ef6656.json") as source:
-    info = json.load(source)
+info = json.loads(st.secrets["GOOGLE_SERVICE_ACCOUNT_JSON"])
     credentials = service_account.Credentials.from_service_account_info(info, scopes=["https://www.googleapis.com/auth/spreadsheets"])
 
 # Connect to Google Sheet
